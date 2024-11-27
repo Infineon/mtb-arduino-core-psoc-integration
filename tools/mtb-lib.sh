@@ -234,8 +234,8 @@ function get_inc_dirs {
 function get_build_flags {
     # All the building flags, linking flags, and include directories are retrieved
     # to be used to compile the Arduino core sources and the user application sources
-    get_ccxx_build_flags
-    get_ld_linker_flags
+    # get_ccxx_build_flags # Now this is using the one copied in the core/variants/$board
+    # get_ld_linker_flags # Now using the one copied in the core/variants/$board
     get_inc_dirs
 }
 
@@ -258,8 +258,8 @@ function build {
     #     fi
     # fi
   
-    get_bsp_deps
-    build_bsp
+    #get_bsp_deps
+    #build_bsp
 
     get_build_flags
 
