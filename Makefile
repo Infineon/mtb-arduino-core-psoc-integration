@@ -87,7 +87,9 @@ VERBOSE=
 # ... then code in directories named COMPONENT_foo and COMPONENT_bar will be
 # added to the build
 #
-COMPONENTS=MBEDTLS FREERTOS LWIP SECURE_SOCKETS
+COMPONENTS=MBEDTLS FREERTOS LWIP 
+#TODO: Check if secure socket component is required.
+#COMPONENT+=SECURE_SOCKETS
 
 # Like COMPONENTS, but disable optional code that was enabled by default.
 DISABLE_COMPONENTS=
@@ -100,13 +102,15 @@ SOURCES=
 
 # Like SOURCES, but for include directories. Value should be paths to
 # directories (without a leading -I).
-INCLUDES= mbedtls/
+INCLUDES= mbedtls/ lwip/
 
 # Add additional defines to the build process (without a leading -D).
 DEFINES=
 MBEDTLSFLAGS=MBEDTLS_USER_CONFIG_FILE='"mbedtls_user_config.h"'
 DEFINES+=CY_RETARGET_IO_CONVERT_LF_TO_CRLF CY_RTOS_AWARE CYBSP_WIFI_CAPABLE $(MBEDTLSFLAGS) CY_WIFI_HOST_WAKE_SW_FORCE=0
-DEFINES+=ENABLE_CONNECTIVITY_MIDDLEWARE_LOGS ENABLE_WCM_LOGS ENABLE_SECURE_SOCKETS_LOGS
+DEFINES+= ENABLE_WCM_LOGS 
+# TODO: Check if secure socket defines are required.
+#DEFINES+=ENABLE_SECURE_SOCKETS_LOGS ENABLE_CONNECTIVITY_MIDDLEWARE_LOGS
 
 # Select softfp or hardfp floating point. Default is softfp.
 VFP_SELECT=
