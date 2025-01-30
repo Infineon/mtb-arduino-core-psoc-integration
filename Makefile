@@ -87,9 +87,7 @@ VERBOSE=
 # ... then code in directories named COMPONENT_foo and COMPONENT_bar will be
 # added to the build
 #
-COMPONENTS=MBEDTLS FREERTOS LWIP 
-#TODO: Check if secure socket component is required.
-#COMPONENT+=SECURE_SOCKETS
+COMPONENTS=MBEDTLS FREERTOS LWIP SECURE_SOCKETS
 
 # Like COMPONENTS, but disable optional code that was enabled by default.
 DISABLE_COMPONENTS=
